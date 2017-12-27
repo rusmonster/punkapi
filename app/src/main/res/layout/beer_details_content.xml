@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto">
+
+	<data>
+
+		<variable name="beer" type="com.example.dkalita.punkapi.datasource.Beer" />
+
+	</data>
+
+	<android.support.v4.widget.NestedScrollView
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+		<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical"
+				android:padding="20dp">
+
+			<TextView
+					style="@style/DetailsItemLabel"
+					android:text="@string/beer_details_id" />
+
+			<TextView
+					style="@style/DetailsItemValue"
+					android:text="@{String.valueOf(beer.id)}" />
+
+			<TextView
+					style="@style/DetailsItemLabel"
+					android:text="@string/beer_details_name" />
+
+			<TextView
+					style="@style/DetailsItemValue"
+					android:text="@{beer.name}" />
+
+			<TextView
+					style="@style/DetailsItemLabel"
+					android:text="@string/beer_details_abv" />
+
+			<TextView
+					style="@style/DetailsItemValue"
+					android:text="@{String.valueOf(beer.abv)}" />
+
+			<TextView
+					style="@style/DetailsItemLabel"
+					android:text="@string/beer_details_ibu" />
+
+			<TextView
+					style="@style/DetailsItemValue"
+					android:text="@{String.valueOf(beer.ibu)}" />
+
+			<TextView
+					style="@style/DetailsItemLabel"
+					android:text="@string/beer_details_ebc" />
+
+			<TextView
+					style="@style/DetailsItemValue"
+					android:text="@{String.valueOf(beer.ebc)}" />
+
+			<TextView
+					style="@style/DetailsItemLabel"
+					android:text="@string/beer_details_brewers_tips" />
+
+			<TextView
+					style="@style/DetailsItemValue"
+					android:text="@{String.valueOf(beer.brewersTips)}" />
+
+			<TextView
+					style="@style/DetailsItemLabel"
+					android:text="@string/beer_details_contributed_by" />
+
+			<TextView
+					style="@style/DetailsItemValue"
+					android:text="@{String.valueOf(beer.contributedBy)}" />
+
+		</LinearLayout>
+
+	</android.support.v4.widget.NestedScrollView>
+
+</layout>

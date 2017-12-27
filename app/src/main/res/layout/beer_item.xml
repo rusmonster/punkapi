@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto">
+
+	<data>
+
+		<variable name="beerItem" type="com.example.dkalita.punkapi.viewmodel.MainViewModel.BeerItemModel" />
+
+		<variable name="viewModel" type="com.example.dkalita.punkapi.viewmodel.MainViewModel" />
+
+	</data>
+
+	<android.support.constraint.ConstraintLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:paddingTop="10dp"
+			android:paddingBottom="10dp"
+			android:paddingStart="20dp"
+			android:paddingEnd="10dp"
+			android:onClick="@{() -> viewModel.onBeerSelected(beerItem)}">
+
+		<TextView
+				android:id="@+id/text_beer_first_row"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginEnd="20dp"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintEnd_toStartOf="@+id/checkbox_favorite"
+				android:maxLines="2"
+				android:ellipsize="end"
+				android:textAppearance="?android:attr/textAppearanceLarge"
+				android:text="@{beerItem.firstRow}" />
+
+		<TextView
+				android:id="@+id/text_beer_second_row"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				app:layout_constraintTop_toBottomOf="@+id/text_beer_first_row"
+				app:layout_constraintStart_toStartOf="@+id/text_beer_first_row"
+				app:layout_constraintEnd_toEndOf="@+id/text_beer_first_row"
+				android:maxLines="1"
+				android:ellipsize="end"
+				android:textAppearance="?android:attr/textAppearanceSmall"
+				android:text="@{beerItem.secondRow}" />
+
+		<CheckBox
+				android:id="@+id/checkbox_favorite"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintBottom_toBottomOf="parent"
+				android:padding="10dp"
+				android:button="@drawable/checkable_favorite"
+				android:buttonTint="@color/colorAccent"
+				android:checked="@{beerItem.isFavorite}"
+				android:onCheckedChanged="@{(view, isChecked) -> viewModel.onItemFavoriteClick(beerItem, isChecked)}" />
+
+	</android.support.constraint.ConstraintLayout>
+
+</layout>
